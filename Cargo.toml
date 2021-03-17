@@ -33,26 +33,28 @@ cclst = ["class_group"]
 subtle = { version = "2" }
 serde = { version = "1.0", features = ["derive"] }
 zeroize = "0.10.1"
-libsecp256k1 = "0.3.2"
+p256 = { version = "0.5.2", features = ["ecdsa"] }
+ecdsa = "0.10.2"
+sha256 = "1.0.0"
 
 [dependencies.curv]
-git = "https://github.com/KZen-networks/curv"
-tag = "v0.6.1"
+git = "https://github.com/jirigav/curv"
+tag = "v0.6.2"
 default-features = false
 
 [dependencies.centipede]
-git = "https://github.com/KZen-networks/centipede"
-tag = "v0.2.10"
+git = "https://github.com/jirigav/centipede"
+tag = "v0.2.11"
 default-features = false
 
 [dependencies.paillier]
-git = "https://github.com/KZen-networks/rust-paillier"
-tag = "v0.3.8"
+git = "https://github.com/jirigav/rust-paillier"
+tag = "v0.3.9"
 default-features = false
 
 [dependencies.zk-paillier]
-git = "https://github.com/KZen-networks/zk-paillier"
-tag = "v0.3.10"
+git = "https://github.com/jirigav/zk-paillier"
+tag = "v0.3.11"
 default-features = false
 
 [dependencies.class_group]

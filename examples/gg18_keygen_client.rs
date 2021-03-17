@@ -7,7 +7,7 @@ use curv::{
     cryptographic_primitives::{
         proofs::sigma_dlog::DLogProof, secret_sharing::feldman_vss::VerifiableSS,
     },
-    elliptic::curves::secp256_k1::{FE, GE},
+    elliptic::curves::p256::{FE, GE},
     elliptic::curves::traits::{ECPoint, ECScalar},
     BigInt,
 };

@@ -1,6 +1,6 @@
 #![allow(non_snake_case)]
 use crate::utilities::zk_pdl_with_slack::*;
-use curv::elliptic::curves::secp256_k1::{FE, GE};
+use curv::elliptic::curves::p256::{FE, GE};
 use curv::BigInt;
 use paillier::core::Randomness;
 use paillier::traits::{EncryptWithChosenRandomness, KeyGeneration};

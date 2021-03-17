@@ -1,12 +1,13 @@
 #![allow(non_snake_case)]
 
+use sha256::digest;
 use curv::{
     arithmetic::traits::*,
     cryptographic_primitives::{
         proofs::sigma_correct_homomorphic_elgamal_enc::HomoELGamalProof,
         proofs::sigma_dlog::DLogProof, secret_sharing::feldman_vss::VerifiableSS,
     },
-    elliptic::curves::secp256_k1::{FE, GE},
+    elliptic::curves::p256::{FE, GE},
     elliptic::curves::traits::ECScalar,
     BigInt,
 };
@@ -34,11 +35,7 @@ fn main() {
         panic!("too few arguments")
     }
     let message_str = env::args().nth(3).unwrap_or_else(|| "".to_string());
-    let message = match hex::decode(message_str.clone()) {
-        Ok(x) => x,
-        Err(_e) => message_str.as_bytes().to_vec(),
-    };
-    let message = &message[..];
+
     let client = Client::new();
     // delay:
     let delay = time::Duration::from_millis(25);
@@ -305,7 +302,7 @@ fn main() {
     let R = R + decomm_i.g_gamma_i * delta_inv;
 
     // we assume the message is already hashed (by the signer).
-    let message_bn = BigInt::from_bytes(message);
+    let message_bn = BigInt::from_bytes(&hex::decode(digest(message_str.clone())).unwrap());
     let local_sig =
         LocalSignature::phase5_local_sig(&sign_keys.k_i, &message_bn, &R, &sigma, &y_sum);
 
@@ -499,14 +496,14 @@ fn main() {
 
     let sign_json = serde_json::to_string(&(
         "r",
-        (BigInt::from_bytes(&(sig.r.get_element())[..])).to_str_radix(16),
+        (BigInt::from_bytes(&(sig.r.get_element().to_bytes())[..])).to_str_radix(16),
         "s",
-        (BigInt::from_bytes(&(sig.s.get_element())[..])).to_str_radix(16),
+        (BigInt::from_bytes(&(sig.s.get_element().to_bytes())[..])).to_str_radix(16),
     ))
     .unwrap();
 
-    // check sig against secp256k1
-    check_sig(&sig.r, &sig.s, &message_bn, &y_sum);
+    // check sig against p256
+    check_sig(&sig.r, &sig.s, message_str, &y_sum);
 
     fs::write("signature".to_string(), sign_json).expect("Unable to save !");
 }

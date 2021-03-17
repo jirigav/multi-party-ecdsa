@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
 
 use curv::arithmetic::traits::*;
-use curv::elliptic::curves::secp256_k1::{FE, GE};
+use curv::elliptic::curves::p256::{FE, GE};
 use curv::elliptic::curves::traits::*;
 use curv::BigInt;
 use paillier::core::Randomness;

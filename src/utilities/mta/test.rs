@@ -1,5 +1,5 @@
 use crate::utilities::mta::*;
-use curv::elliptic::curves::secp256_k1::FE;
+use curv::elliptic::curves::p256::FE;
 use curv::elliptic::curves::traits::ECScalar;
 use paillier::traits::KeyGeneration;
 

@@ -3,7 +3,7 @@ use criterion::criterion_main;
 mod bench {
     use criterion::{criterion_group, Criterion};
     use curv::cryptographic_primitives::secret_sharing::feldman_vss::VerifiableSS;
-    use curv::elliptic::curves::secp256_k1::{FE, GE};
+    use curv::elliptic::curves::p256::{FE, GE};
     use curv::elliptic::curves::traits::*;
     use multi_party_ecdsa::protocols::multi_party_ecdsa::gg_2018::party_i::*;
     pub fn bench_full_keygen_party_one_two(c: &mut Criterion) {

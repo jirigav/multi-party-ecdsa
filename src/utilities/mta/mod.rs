@@ -17,7 +17,7 @@
 /// MtA is descrbied in https://eprint.iacr.org/2019/114.pdf section 3
 use curv::arithmetic::traits::Samplable;
 use curv::cryptographic_primitives::proofs::sigma_dlog::DLogProof;
-use curv::elliptic::curves::secp256_k1::{FE, GE};
+use curv::elliptic::curves::p256::{FE, GE};
 use curv::elliptic::curves::traits::*;
 use curv::BigInt;
 use paillier::traits::EncryptWithChosenRandomness;
