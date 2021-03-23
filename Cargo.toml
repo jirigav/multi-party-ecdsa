@@ -66,10 +66,6 @@ optional = true
 criterion = "0.3"
 rust-crypto = "0.2"
 hex = "0.4"
-rocket = { version = "0.4.2", default-features = false }
-rocket_contrib = "0.4.2"
-reqwest = { version = "0.9", default-features = false }
-uuid = { version = "0.8", features = ["v4"] }
 serde_json = "1.0"
 rand = "0.7"
 
@@ -77,16 +73,13 @@ rand = "0.7"
 rust-gmp = { version = "0.5.0", features = ["serde_support"], git = "https://github.com/KZen-networks/rust-gmp" }
 
 [[example]]
-name = "sm_manager"
+name = "gg18_sign"
 
 [[example]]
-name = "gg18_sign_client"
+name = "gg18_setup"
 
 [[example]]
-name = "gg18_keygen_client"
-
-[[example]]
-name = "common"
+name = "utils"
 crate-type = ["lib"]
 
 [[bench]]
