@@ -32,7 +32,7 @@ cclst = ["class_group"]
 [dependencies]
 subtle = { version = "2" }
 serde = { version = "1.0", features = ["derive"] }
-zeroize = "0.10.1"
+zeroize = "1"
 p256 = { version = "0.5.2", features = ["ecdsa"] }
 ecdsa = "0.10.2"
 sha256 = "1.0.0"
@@ -44,22 +44,19 @@ default-features = false
 
 [dependencies.centipede]
 git = "https://github.com/jirigav/centipede"
-tag = "v0.2.11"
 default-features = false
 
 [dependencies.paillier]
 git = "https://github.com/jirigav/rust-paillier"
-tag = "v0.3.9"
 default-features = false
 
 [dependencies.zk-paillier]
 git = "https://github.com/jirigav/zk-paillier"
-tag = "v0.3.11"
 default-features = false
 
 [dependencies.class_group]
 git = "https://github.com/KZen-networks/class"
-tag = "v0.4.16"
+tag = "v0.5.1"
 optional = true
 
 [dev-dependencies]
