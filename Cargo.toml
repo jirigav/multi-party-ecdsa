@@ -39,7 +39,6 @@ sha256 = "1.0.0"
 
 [dependencies.curv]
 git = "https://github.com/jirigav/curv"
-tag = "v0.6.2"
 default-features = false
 
 [dependencies.centipede]
